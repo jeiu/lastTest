@@ -9,14 +9,16 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /*
- * Date			'21.06.10 12:05
+ * Date			'21.06.10 11:59
  * How			박준영	로컬 json파일 불러오는 method, json파일 저장하는 method
  * Author		박준영
- * Version		1.0.0
+ * Version		1.1.0
  */
 
 public class Json {
-	public void jsonLoad() {
+	CarEntranceExit cee = new CarEntranceExit();
+	
+	public JSONObject jsonLoad() {
 		JSONParser parser = new JSONParser();
 		JSONObject parkingLot = new JSONObject();
 		
@@ -40,17 +42,7 @@ public class Json {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void jsonSave() {
-
-		try {
-			FileWriter file = new FileWriter("c:\\parkingLot.json");
-			file.write(jsonObject.toJSONString());
-			file.flush();
-			file.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
+		return parkingLot;
 	}
 }
