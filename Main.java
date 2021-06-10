@@ -22,9 +22,12 @@ public class Main {
 			switch(select) {
 			case "1":  // 내 차 위치 찾기
 				findcar.searchCar();
+				loop = false;
 				break;
 				
 			case "2":  // 요금 정산하기
+				cee.carExit();
+				loop = false;
 				break;
 				
 			case "3":  // 관리 메뉴
@@ -37,10 +40,15 @@ public class Main {
 				switch(select3) {
 				case 1:  // 입차 등록
 					cee.carEntrance();
+					loop = false;
 					break;
 				case 2:  // 해당 주차칸 차 번호 찾기
+					findcar.searchLot();
+					loop = false;
 					break;
 				case 3:  // 빈 주차칸 확인
+					findcar.emptyLot();
+					loop = false;
 					break;
 				default:
 					break;
