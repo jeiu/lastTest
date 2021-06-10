@@ -16,6 +16,7 @@ import org.json.simple.parser.ParseException;
  * 						1.1.0 json파일을 저장하는 method 삭제
  * 						2.0.0 초기 json파일을 생성하는 method 생성
  * 						2.0.1 오류 수정
+ * 						2.1.0 json 구성 변경
  * Author		박준영
  * Version		2.0.0
  */
@@ -46,12 +47,16 @@ public class Json {
 	// 초기 json 파일을 생성하는 method
 	static void jsonDefualt() {
 		JSONObject parkingLot = new JSONObject();
-		JSONArray parkingLotNum = new JSONArray();
+		JSONObject parkingLotNum = new JSONObject();
 		for (int i = 0 ; i < 60 ; i++) {
-			parkingLotNum = new JSONArray();
-			parkingLotNum.add("");
-			parkingLotNum.add("");
-			parkingLot.put((i + 1), parkingLotNum);
+			parkingLotNum.put("carNum", "");
+			parkingLotNum.put("entranceCarTime", "");
+			parkingLotNum.put("lookupNum", "");
+			
+			JSONArray req_array = new JSONArray();
+			req_array.add(parkingLotNum);
+			
+			parkingLot.put("parkingLotNum" + (i + 1), req_array);
 		}
 		// Json 데이터 C드라이브에 저장
 		try {
@@ -67,5 +72,10 @@ public class Json {
 		}
 		System.out.println("초기 Json 파일 생성을 성공했습니다.");
 	}
+	/* test
+	public static void main(String[]args) {
+		jsonLoad();
+	}
+	*/
 }
 
