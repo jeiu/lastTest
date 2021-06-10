@@ -15,6 +15,7 @@ import org.json.simple.parser.ParseException;
  * How			박준영	1.0.0 로컬 json파일 불러오는 method, json파일 저장하는 method
  * 						1.1.0 json파일을 저장하는 method 삭제
  * 						2.0.0 초기 json파일을 생성하는 method 생성
+ * 						2.0.1 오류 수정
  * Author		박준영
  * Version		2.0.0
  */
@@ -23,7 +24,7 @@ public class Json {
 	CarEntranceExit cee = new CarEntranceExit();
 	
 	
-	static JSONObject jsonLoad() {
+	JSONObject jsonLoad() {
 		JSONParser parser = new JSONParser();
 		JSONObject parkingLot = new JSONObject();
 		// 저장된 Json 파일 불러오기
