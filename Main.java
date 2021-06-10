@@ -1,12 +1,3 @@
-/* 해당클래스은 주차장의 차량의 정보를 저장하기 위한 오브젝트 클래스이다.
- * 작성시간 : 21.06.10 - 10:48
- * 수정시간 : 21.06.10 - 12:36
- * 수정내용 : while 문 내부에 loop변수를 지정하여 q나 Q를 입력하면 반복문이 종료되게끔 수정
- * 작성자 : 김태성
- * 수정자 : 류승원
- * 버전 : 1.0.1
- */
-
 package parking;
 
 import java.util.Scanner;
@@ -14,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		CarEntranceExit cee = new CarEntranceExit();
 		FindCar findcar = new FindCar();
 
 		System.out.println("-----주차 관리 프로그램-----");
@@ -28,27 +20,31 @@ public class Main {
 		
 		while(loop) {
 			switch(select) {
-			case "1":
+			case "1":  // 내 차 위치 찾기
 				findcar.searchCar();
 				break;
 				
-			case "2":
+			case "2":  // 요금 정산하기
 				break;
 				
-			case "3":
-				System.out.println("1. 주차칸의 차 검색");
-				System.out.println("2. 빈 주차칸 검색");
+			case "3":  // 관리 메뉴
+				System.out.println("1. 주차 등록");
+				System.out.println("2. 주차칸의 차 검색");
+				System.out.println("3. 빈 주차칸 검색");
 				
 				int select3 = scan.nextInt();
 				
-				if(select3 == 1) {
-					
-				} else if(select3 == 2) {
-					
-				} else {
-					System.out.println("잘못 입력하셨습니다.");
+				switch(select3) {
+				case 1:  // 입차 등록
+					cee.carEntrance();
+					break;
+				case 2:  // 해당 주차칸 차 번호 찾기
+					break;
+				case 3:  // 빈 주차칸 확인
+					break;
+				default:
+					break;
 				}
-				
 				break;
 			
 			case "Q", "q":
