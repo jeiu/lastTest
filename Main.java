@@ -1,48 +1,56 @@
-/* 해당프로그램은 주차장의 차량을 관리하는 목적이다.
- * 작성시간 : 21.06.10 - 10:33 
- * 수정시간 : 21.06.10 - 10:48
- * 수정내용 : Main 클래스의 기본 틀 제작
- * 작성자 : 김태성
- */
-
-
-
 package parking;
 
 import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
-		
-		//사용자의 메뉴 선택을 위한 스캐너 객체와 메뉴 변수 선언 - 10:40
 		Scanner scan = new Scanner(System.in);
-		int menu;
+		FindCar findcar = new FindCar();
 
-		//메뉴 작업 종료후 다시 다른 작업을 할 수 있게 반복하는 반복문
-		while(true) {
+		System.out.println("-----주차 관리 프로그램-----");
+		System.out.println("   1. 내 차 위치 찾기");
+		System.out.println("   2. 요금 정산하기");
+		System.out.println("   3. 관리 메뉴");
+		System.out.println("   Q. 종료");
+		System.out.println("-----------------------");
+		
+		String select = scan.next();
+		boolean loop = true;
+		
+		while(loop) {
+			switch(select) {
+			case "1":
+				findcar.searchCar();
+				break;
+				
+			case "2":
+				break;
+				
+			case "3":
+				System.out.println("1. 주차칸의 차 검색");
+				System.out.println("2. 빈 주차칸 검색");
+				
+				int select3 = scan.nextInt();
+				
+				if(select3 == 1) {
+					
+				} else if(select3 == 2) {
+					
+				} else {
+					System.out.println("잘못 입력하셨습니다.");
+				}
+				
+				break;
 			
-			//메뉴를 선택하여 사용자가 원하는 메뉴 진입
-			System.out.println("메뉴를 선택하세요\n1 : 주차차량 정보 등록\n2 : 주차차량 정보 조회\n3:출차 요금 계산");
-			menu = scan.nextInt();
-			
-			switch (menu) {
-			case 1:{
-				System.out.println("주차 차량 정보 등록");
+			case "Q", "q":
+				loop = false;
 				break;
-			}
-			case 2:{
-				System.out.println("주차 차량 정보 조회");
-				break;
-			}
-			case 3:{
-				System.out.println("출차 요금 계산");
-				break;
-			}
+				
 			default:
+				System.out.println("잘못 입력하셨습니다.");
+				break;
 			}
 		}
-
 	}
 
 }
